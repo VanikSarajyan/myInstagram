@@ -13,6 +13,15 @@ class PostsController extends Controller
         $this->middleware('auth')->except(['show']);
     }
 
+    public function index()
+    {
+        $users = auth()->user()->following->pluck('user_id');
+
+        $posts = Post::whereIn('user_id', $users)->latest()->get();
+
+        return view('posts.index', compact('posts'));
+    }
+
     public function show(Post $post)
     {
         return view('posts.show', compact('post'));
