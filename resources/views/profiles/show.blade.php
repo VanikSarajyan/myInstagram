@@ -11,6 +11,7 @@
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
                 <h1 class="pr-5">{{$user->username}}</h1>
+                <div><follow-button user-id="{{ $user->id }}" follows="{{ $follows }}"></follow-button></div>
                 @can('update', $user->profile)
                     <div>
                         <a href="/profile/{{$user->id}}/edit"><button class="btn btn-default pr-5"><strong>Edit Profile</strong></button></a>
@@ -20,9 +21,9 @@
                 @endcan
             </div>
             <div>
-                <span class="pr-5"><strong>{{$user->posts->count()}}</strong> posts</span>
-                <span class="pr-5"><strong>66</strong> followers</span>
-                <span class="pr-5"><strong>58</strong> following</span>
+                <span class="pr-5"><strong>{{ $user->posts->count() }}</strong> posts</span>
+                <span class="pr-5"><strong>{{ $user->profile->followers->count() }}</strong> followers</span>
+                <span class="pr-5"><strong>{{ $user->following->count() }}</strong> following</span>
             </div>
             <div class="pt-4">
                 <strong>{{$user->profile->title}}</strong>
