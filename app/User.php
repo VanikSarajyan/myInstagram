@@ -42,13 +42,7 @@ class User extends Authenticatable
         parent::boot();
 
         static::created(function ($user) {
-            $imagePath = 'profile/defaultimage.jpeg';
-            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000,1000);
-            $image->save();
-
-            $user->profile()->create([
-                'image' => $imagePath
-            ]);
+            $user->profile()->create();
         });
     }
 

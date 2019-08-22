@@ -11,7 +11,7 @@
                 <a href="/profile/{{ $post->user->id }}">
                     <div class="d-flex align-items-center">
                         <div>
-                            <img src="/storage/{{$post->user->profile->image}}" class="rounded-circle pr-3" style="max-width:50px"/>
+                            <img src="{{$post->user->profile->profileImage()}}" class="rounded-circle pr-3" style="max-width:50px"/>
                         </div>
                         <div>
                             <span class="text-dark"><h3>{{ $post->user->username }}</h3></span>
