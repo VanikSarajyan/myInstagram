@@ -40,8 +40,8 @@
                 </div>
 
                 <div class="row pt-4">
-                    <button class="btn btn-primary">
-                        Post
+                    <button style="border: 1px solid black" class="btn btn-default">
+                        <strong> Post </strong>
                     </button>
                 </div>
             </div>

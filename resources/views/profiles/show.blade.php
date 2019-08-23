@@ -19,7 +19,7 @@
                     @endcan
                 </div>
                 @can('update', $user->profile)
-                    <a href="/p/create">New Post</a>
+                    <a href="/p/create"><button style="border: 1px solid black" class="btn btn-default"><strong>New Post</strong></button></a>
                 @endcan
             </div>
             <div>

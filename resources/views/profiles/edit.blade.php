@@ -60,8 +60,8 @@
                 </div>    
 
                 <div class="row pt-4">
-                    <button class="btn btn-primary">
-                        Save Profile
+                    <button style="border: 1px solid black" class="btn btn-default">
+                        <strong>Edit Profile</strong>
                     </button>
                 </div>
             </div>
