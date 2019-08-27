@@ -16,4 +16,8 @@ class Post extends Model
         return $this->belongsToMany(User::class);
     }
 
+    public function isLiked(){
+        return auth()->user() ? auth()->user()->liked->contains($this->id) : false;
+    }
+
 }
