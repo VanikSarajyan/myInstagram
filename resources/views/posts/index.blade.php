@@ -18,6 +18,8 @@
         </div>
         <div class="row pt-2 pb-4">
             <div class="col-6 offset-3">
+                <like-button post-id="{{ $post->id }}" is-liked="{{ $post->isLiked() }}"></like-button>
+                <p>Liked by {{ $post->likes->count() }} people.</p>
                 <p>
                     <a href="/profile/{{ $post->user->id }}">
                         <span class="text-dark"><strong>{{ $post->user->username }}</strong></span>

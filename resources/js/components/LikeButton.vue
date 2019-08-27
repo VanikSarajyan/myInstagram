@@ -1,22 +1,22 @@
 <template>
     <div class="container">
-        <button class="btn btn-default" style="border: 1px solid black" @click="followUser" v-text="buttonText"></button>
+        <button class="btn btn-primary" @click="likePost" v-text="buttonText"></button>
     </div>
 </template>
 
 <script>
     export default {
-        props: ['userId', 'follows'],
+        props: ['postId', 'isLiked'],
 
         data: function(){
             return {
-                status: this.follows,
+                status: this.isLiked,
             }
         },
 
         methods: {
-            followUser(){
-                axios.post('/follow/' + this.userId)
+            likePost(){
+                axios.post('/like/' + this.postId)
                     .then(response => {
                         this.status = !this.status;
                     }
@@ -30,7 +30,7 @@
 
         computed: {
             buttonText(){
-                return this.status ? 'Unfollow' : 'Follow';
+                return this.status ? 'Unlike' : 'Like';
             }
         }
     }

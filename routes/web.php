@@ -25,3 +25,4 @@ Route::get('/p/{post}', 'PostsController@show')->name('posts.show');
 Route::post('/p', 'PostsController@store')->name('posts.store');
 
 Route::post('/follow/{user}', 'FollowsController@store')->name('follows.store');
+Route::post('/like/{post}', 'LikesController@store')->name('likes.store');

@@ -11,22 +11,24 @@
                 <a href="/profile/{{ $post->user->id }}">
                     <div class="d-flex align-items-center">
                         <div>
-                            <img src="{{$post->user->profile->profileImage()}}" class="rounded-circle pr-3" style="max-width:50px"/>
+                            <img src="{{$post->user->profile->profileImage()}}" class="rounded-circle pr-3" style="width:50px"/>
                         </div>
                         <div>
                             <span class="text-dark"><h3>{{ $post->user->username }}</h3></span>
                         </div>
                     </div>
                 </a>
-                <a href="#">Follow</a>
+                <follow-button user-id="{{ $post->user->id }}" follows="{{ $follows }}"></follow-button>
             </div>
             <hr><br>
-            <p>
+            <div>
+                <like-button post-id="{{ $post->id }}" is-liked="{{ $post->isLiked() }}"></like-button>
+                <p>Liked by {{ $post->likes->count() }} people.</p>
                 <a href="/profile/{{ $post->user->id }}">
                     <span class="text-dark"><strong>{{ $post->user->username }}</strong></span>
                 </a> 
-                {{ $post->caption }}
-            </p>
+                <p>{{ $post->caption }}</p>
+            </div>
         </div>
     </div>
 </div>
